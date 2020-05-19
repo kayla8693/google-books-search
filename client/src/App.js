@@ -4,7 +4,7 @@ import { BrowserRouter as Router } from "react-router-dom";
 import Main from "./components/Main";
 import Header from "./components/Header";
 
-import logo from "./logo.svg";
+// import logo from "./logo.svg";
 import "./App.css";
 
 function App() {
