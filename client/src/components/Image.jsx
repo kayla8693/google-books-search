@@ -12,3 +12,5 @@ function Image({ src }) {
         />
     );
 }
+
+export default Image;

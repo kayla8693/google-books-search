@@ -3,7 +3,7 @@ import { BrowserRouter as Router } from "react-router-dom";
 
 // import Main from "./components/Main";
 import Header from "./components/Header";
-import SearchBar from "./components/SearchBar";
+import SearchBox from "./components/SearchBox";
 import { BookList, BookListItem } from "./pages/Search";
 import { Container, Row, Col } from "./components/Grid";
 import API from "./utils/API";
@@ -29,11 +29,32 @@ function App() {
     .catch(err => console.log(err));
   }
 
-
   return (
 
     <Router>
       <Header />
+      <Container>
+        <Row>
+          <Col size="md-12">
+            <form>
+              <Container>
+                <Row>
+                  <Col size="xs-9 sm-10">
+                    <SearchBox
+                    name="BookSearch"
+                    value={bookSearch}
+                    onChange={handleInputChange}
+                    placeholder="Search for a Book"
+                    />
+
+                  </Col>
+                </Row>
+              </Container>
+            </form>
+          </Col>
+        </Row>
+      </Container>
+
     </Router>
     // <div className="App">
     //   <div className="App-header">
