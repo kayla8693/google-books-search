@@ -2,7 +2,8 @@ import React, { useState } from "react";
 
 import { Container, Row, Col } from "../components/Grid";
 import SearchBox from "../components/SearchBox";
-import SubmitBtn from "../components/SubmitBtn";
+import SubmitBtn from "../components/Button";
+// import SaveBtn from "../components/SaveBtn";
 import { BookList, BookListItem } from "../components/BookList";
 import API from "../utils/API";
 
@@ -57,21 +58,26 @@ function SearchPg() {
         </Row>
         <Row>
           <Col size="xs-10">
-            {/* {!books.length ? (
-              <h1
-              className="text-center">No Books to Display</h1>
-            ) : ( */}
               <BookList>
                 {books.map(book => {
                   return (
+                      <>
                     <BookListItem
-                    key={book.title}
+                    key={book.id}
                     title={book.volumeInfo.title}
                     description={book.volumeInfo.description}
                     link={book.volumeInfo.infoLink}
-                    image={book.volumeInfo.imageLinks.smallThumbnail}
-                    authors={book.volumeInfo.authors}
+                    image={book.volumeInfo.imageLinks.thumbnail}
+                    authors={book.volumeInfo.authors.join(", ")}
                     />
+                    <br></br>
+{/* 
+                    <Row>
+                    <SaveBtn />
+
+                    </Row> */}
+                    </>
+                    
                   );
                 })}
               </BookList>

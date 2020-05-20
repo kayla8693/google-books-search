@@ -1,6 +1,8 @@
 import React from "react";
 
 import { Container, Row, Col } from "../components/Grid";
+import SaveBtn from "../components/SaveBtn";
+
 
 export function BookList({ children }) {
     return <ul className="list-group">{children}</ul>;
@@ -18,7 +20,7 @@ export function BookListItem({
             <Container>
                 <Row>
                     <Col size="xs-4 sm-2">
-                        <img src={image} alt={title} />
+                        <img src={image || "https://placehold.it/100x100"} alt={title} />
                     </Col>
                     <Col size="xs-8 sm-9">
                         <h3>{title} by {authors}</h3>
@@ -27,6 +29,9 @@ export function BookListItem({
                             Go to Book!
                         </a>
                     </Col>
+                </Row>
+                <Row>
+                    <SaveBtn />
                 </Row>
             </Container>
         </li>
