@@ -1,6 +1,6 @@
 import React from "react";
 
-function SubmitBtn({ type = "default", className, children, onClick }) {
+function Button({ type = "default", className, children, onClick }) {
     return (
         <button onClick={onClick} className={["btn btn-lg", `btn-${type}`, className].join(" ")}>
             {children}
@@ -8,4 +8,4 @@ function SubmitBtn({ type = "default", className, children, onClick }) {
     );
 }
 
-export default SubmitBtn;
+export default Button;

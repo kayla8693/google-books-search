@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 import { Container, Row, Col } from "../components/Grid";
 import SearchBox from "../components/SearchBox";
-import SubmitBtn from "../components/Button";
+import Button from "../components/Button";
 // import SaveBtn from "../components/SaveBtn";
 import { BookList, BookListItem } from "../components/BookList";
 import API from "../utils/API";
@@ -26,6 +26,10 @@ function SearchPg() {
     .catch(err => console.log(err));
   }
 
+  const handleSaveBook = event => {
+      API.saveBook()
+  }
+
   return (
 
 <>
@@ -44,12 +48,12 @@ function SearchPg() {
                     />
                   </Col>
                   <Col size="xs-3 sm-2">
-                    <SubmitBtn
+                    <Button
                     onClick={handleFormSubmit}
                     type="success"
                     className="input-lg">
                       Search
-                    </SubmitBtn>
+                    </Button>
                   </Col>
                 </Row>
               </Container>
@@ -71,11 +75,6 @@ function SearchPg() {
                     authors={book.volumeInfo.authors.join(", ")}
                     />
                     <br></br>
-{/* 
-                    <Row>
-                    <SaveBtn />
-
-                    </Row> */}
                     </>
                     
                   );
