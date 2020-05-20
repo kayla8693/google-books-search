@@ -7,8 +7,18 @@ export default {
 
     search: function(query) {
         return axios.get(BASEURL + query + APIKEY);
+    },
+
+    saveBook: function(bookData) {
+        return axios.post("/api/books", bookData);
+    },
+
+    getBook: function(id) {
+        return axios.get("/api/books/" + id);
+    },
+
+    deleteBook: function(id) {
+        return axios.delete("/api/book/" + id);
     }
-    // search: function(queryT, queryA) {
-    //     return axios.get(`https://www.googleapis.com/books/v1/volumes?q=${queryT}+inauthor:${queryA}&key=${APIKEY}`
-    // }
+
 };
