@@ -1,13 +1,14 @@
-import React, { useState, Component } from "react";
+import React, { Component } from "react";
 import { BrowserRouter as Router } from "react-router-dom";
 
 // import Main from "./components/Main";
 import Header from "./components/Header";
-import SearchBox from "./components/SearchBox";
-import SubmitBtn from "./components/SubmitBtn";
-import { BookList, BookListItem } from "./pages/SearchPg";
-import { Container, Row, Col } from "./components/Grid";
-import API from "./utils/API";
+import SearchPg from "./pages/SearchPg";
+// import SearchBox from "./components/SearchBox";
+// import SubmitBtn from "./components/SubmitBtn";
+// import { BookList, BookListItem } from "./pages/SearchPg";
+// import { Container, Row, Col } from "./components/Grid";
+// import API from "./utils/API";
 // import NoResults from "./pages/NoResults";
 
 
@@ -16,26 +17,27 @@ import "./App.css";
 
 function App() {
 
-  const [books, setBooks] = useState([]);
-  const [bookSearch, setBookSearch] = useState("");
+  // const [books, setBooks] = useState([]);
+  // const [bookSearch, setBookSearch] = useState("");
 
-  const handleInputChange = event => {
-    const { value } = event.target;
-    setBookSearch(value);
-  };
+  // const handleInputChange = event => {
+  //   const { value } = event.target;
+  //   setBookSearch(value);
+  // };
 
-  const handleFormSubmit = event => {
-    event.preventDefault();
-    API.search(bookSearch)
-    .then(res => setBooks(res.data.items))
-    .catch(err => console.log(err));
-  }
+  // const handleFormSubmit = event => {
+  //   event.preventDefault();
+  //   API.search(bookSearch)
+  //   .then(res => setBooks(res.data.items))
+  //   .catch(err => console.log(err));
+  // }
 
   return (
 
     <Router>
       <Header />
-      <Container>
+      <SearchPg />
+      {/* <Container>
         <Row>
           <Col size="md-12">
             <form>
@@ -64,10 +66,6 @@ function App() {
         </Row>
         <Row>
           <Col size="xs-10">
-            {/* {!books.length ? (
-              <h1
-              className="text-center">No Books to Display</h1>
-            ) : ( */}
               <BookList>
                 {books.map(book => {
                   return (
@@ -85,7 +83,7 @@ function App() {
             
           </Col>
         </Row>
-      </Container>
+      </Container> */}
 
     </Router>
     // <div className="App">
