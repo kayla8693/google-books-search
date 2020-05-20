@@ -1,7 +1,7 @@
 import React from "react";
 
 import { Container, Row, Col } from "../components/Grid";
-import Image from "../components/Image";
+// import Image from "../components/Image";
 
 export function BookList({ children }) {
     return <ul className="list-group">{children}</ul>;
@@ -11,7 +11,7 @@ export function BookListItem({
     title,
     authors,
     description,
-    imageLink,
+    image,
     link
 }) {
     return (
@@ -19,7 +19,7 @@ export function BookListItem({
             <Container>
                 <Row>
                     <Col size="xs-4 sm-2">
-                        <Image src={imageLink || "https://placehold.it/300x300"} />
+                        <img src={image} alt={title} />
                     </Col>
                     <Col size="xs-8 sm-9">
                         <h3>{title} by {authors}</h3>

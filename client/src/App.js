@@ -8,6 +8,7 @@ import SubmitBtn from "./components/SubmitBtn";
 import { BookList, BookListItem } from "./pages/SearchPg";
 import { Container, Row, Col } from "./components/Grid";
 import API from "./utils/API";
+// import NoResults from "./pages/NoResults";
 
 
 // import logo from "./logo.svg";
@@ -74,8 +75,8 @@ function App() {
                     key={book.title}
                     title={book.volumeInfo.title}
                     description={book.volumeInfo.description}
-                    link={book.volumeInfo.infoLink.thumbnail}
-                    imageLink={book.volumeInfo.imageLink.thumbnail}
+                    link={book.volumeInfo.infoLink}
+                    image={book.volumeInfo.imageLinks.smallThumbnail}
                     authors={book.volumeInfo.authors}
                     />
                   );
