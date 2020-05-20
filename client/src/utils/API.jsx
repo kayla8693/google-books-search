@@ -9,6 +9,10 @@ export default {
         return axios.get(BASEURL + query + APIKEY);
     },
 
+    getBooks: function() {
+        return axios.get("/api/books");
+    },
+
     saveBook: function(bookData) {
         return axios.post("/api/books", bookData);
     },

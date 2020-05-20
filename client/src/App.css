@@ -23,8 +23,11 @@
   to { transform: rotate(360deg); }
 } */
 
-.header {
+.navbar {
   background-color: goldenrod;
   text-align: center;
-  /* height: 60px; */
 }
+
+/* .navBtn {
+  margin-left: -40px;
+} */

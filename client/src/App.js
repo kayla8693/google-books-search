@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router } from "react-router-dom";
 
-import Header from "./components/Header";
+import NavBar from "./components/NavBar";
 import SearchPg from "./pages/SearchPg";
 
 
@@ -16,7 +16,7 @@ function App() {
   return (
 
     <Router>
-      <Header />
+      <NavBar />
       <SearchPg />
     
     </Router>
