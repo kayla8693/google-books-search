@@ -1,12 +1,14 @@
 import React from "react";
-import TextField from "@material-ui/core/TextField";
+// import TextField from "@material-ui/core/TextField";
 
 function SearchBox(props) {
     return (
-        <form noValidate autoComplete="off">
-            <TextField id="outlined-search" label="Search" type="search" variant="outlined"
+        <div className="input-group input-group-lg">
+            <input 
+            className="form-control"
+            type="text"
             {...props}/>
-        </form>
+        </div>
     )
 };
 

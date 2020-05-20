@@ -11,7 +11,7 @@ export function BookListItem({
     title,
     authors,
     description,
-    image,
+    imageLink,
     link
 }) {
     return (
@@ -19,7 +19,7 @@ export function BookListItem({
             <Container>
                 <Row>
                     <Col size="xs-4 sm-2">
-                        <Image src={image || "https://placehold.it/300x300"} />
+                        <Image src={imageLink || "https://placehold.it/300x300"} />
                     </Col>
                     <Col size="xs-8 sm-9">
                         <h3>{title} by {authors}</h3>

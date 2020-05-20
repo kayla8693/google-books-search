@@ -4,7 +4,8 @@ import { BrowserRouter as Router } from "react-router-dom";
 // import Main from "./components/Main";
 import Header from "./components/Header";
 import SearchBox from "./components/SearchBox";
-import { BookList, BookListItem } from "./pages/Search";
+import SubmitBtn from "./components/SubmitBtn";
+import { BookList, BookListItem } from "./pages/SearchPg";
 import { Container, Row, Col } from "./components/Grid";
 import API from "./utils/API";
 
@@ -25,7 +26,7 @@ function App() {
   const handleFormSubmit = event => {
     event.preventDefault();
     API.search(bookSearch)
-    .then(res => setBooks(res.items))
+    .then(res => setBooks(res.data.items))
     .catch(err => console.log(err));
   }
 
@@ -46,11 +47,41 @@ function App() {
                     onChange={handleInputChange}
                     placeholder="Search for a Book"
                     />
-
+                  </Col>
+                  <Col size="xs-3 sm-2">
+                    <SubmitBtn
+                    onClick={handleFormSubmit}
+                    type="success"
+                    className="input-lg">
+                      Search
+                    </SubmitBtn>
                   </Col>
                 </Row>
               </Container>
             </form>
+          </Col>
+        </Row>
+        <Row>
+          <Col size="xs-10">
+            {/* {!books.length ? (
+              <h1
+              className="text-center">No Books to Display</h1>
+            ) : ( */}
+              <BookList>
+                {books.map(book => {
+                  return (
+                    <BookListItem
+                    key={book.title}
+                    title={book.volumeInfo.title}
+                    description={book.volumeInfo.description}
+                    link={book.volumeInfo.infoLink.thumbnail}
+                    imageLink={book.volumeInfo.imageLink.thumbnail}
+                    authors={book.volumeInfo.authors}
+                    />
+                  );
+                })}
+              </BookList>
+            
           </Col>
         </Row>
       </Container>
