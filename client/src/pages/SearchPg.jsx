@@ -26,17 +26,36 @@ function SearchPg() {
     .catch(err => console.log(err));
   }
 
-  const handleSaveBook = event => {
-      event.preventDefault();
-      console.log(books);
-      console.log("clicked");
-      let savedBook = books.filter(book => book.id === event.target.id)
-      console.log(savedBook);
-      savedBook = savedBook[0];
-      API.saveBook(savedBook)
-      .then(() => {alert(`${savedBook.title} was saved`)})
-      .catch(err => console.log(err));
-  }
+
+
+
+const handleSaveBook = id => {
+    const book = books.find(book => book.id === id);
+
+    API.saveBook({
+        id: book.id,
+        title: book.volumeInfo.title,
+        authors: book.volumeInfo.authors,
+        description: book.volumeInfo.description,
+        link: book.volumeInfo.infoLink,
+        image: book.volumeInfo.imageLinks.thumbnail
+    })
+    .then(() => this.getBooks());
+}
+
+
+
+//   const handleSaveBook = event => {
+//       event.preventDefault();
+//       console.log(books);
+//       console.log("clicked");
+//       let savedBook = books.filter(book => book.id === event.target.id)
+//       console.log(savedBook);
+//       savedBook = savedBook[0];
+//       API.saveBook(savedBook)
+//       .then(() => {alert(`${savedBook.title} was saved`)})
+//       .catch(err => console.log(err));
+//   }
 
   return (
 
@@ -71,9 +90,7 @@ function SearchPg() {
         <Row>
           <Col size="xs-10">
               <BookList>
-                {books.map(book => {
-                  return (
-                      <>
+                {books.map(book => (
                     <BookListItem
                     key={book.id}
                     title={book.volumeInfo.title}
@@ -81,13 +98,19 @@ function SearchPg() {
                     link={book.volumeInfo.infoLink}
                     image={book.volumeInfo.imageLinks.thumbnail}
                     authors={book.volumeInfo.authors.join(", ")}
-                    handleSaveBook={handleSaveBook}
+                    // handleSaveBook={handleSaveBook}
+                    Button={() => (
+                        <button
+                        onClick={() => handleSaveBook(book.id)}
+                        className="btn saveBtn">
+                        Save
+                        </button>
+                        
+                    )}
                     />
-                    <br></br>
-                    </>
                     
-                  );
-                })}
+                  
+  ))}
               </BookList>
             
           </Col>

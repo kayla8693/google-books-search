@@ -6,10 +6,10 @@ const bookSchema = new Schema({
         type: String,
         required: true
     },
-    authors: {
+    authors: [{
         type: String,
         required: true
-    },
+    }],
     description: {
         type: String,
         required: true
@@ -23,7 +23,7 @@ const bookSchema = new Schema({
         trim: true
     },
     date: {
-        type: DataCue,
+        type: Date,
         default: Date.now
     }
 });

@@ -10,12 +10,13 @@ export function BookList({ children }) {
 }
 
 export function BookListItem({
-    props,
+    // props,
     title,
     authors,
     description,
     image,
-    link
+    link,
+    Button
 }) {
     return (
         <li className="list-group-item">
@@ -32,11 +33,12 @@ export function BookListItem({
                         </a>
                     </Col>
                 </Row>
-                <Row>
+                <Button />
+                {/* <Row>
                     <SaveBtn 
                     onClick={(event) => props.handleSaveBook(event)}
                     />
-                </Row>
+                </Row> */}
             </Container>
         </li>
     );

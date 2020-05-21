@@ -14,7 +14,7 @@ function SavedPg() {
     }, [])
 
     function loadBooks() {
-        API.getBooks()
+        API.getBooks("/api/books")
         .then(res => 
             setSavedBooks(res.data)
         )
@@ -31,7 +31,13 @@ function SavedPg() {
         <>
             <h2>Your Saved Books</h2>
             <BookList>
-            {savedBooks.map(book => (
+                {/* <SavedItem 
+                {...savedBooks}
+                /> */}
+            {savedBooks.map(book => {
+                console.log(book)
+
+                return (
                     <SavedItem
                     key={book.id}
                     title={book.volumeInfo.title}
@@ -40,7 +46,8 @@ function SavedPg() {
                     image={book.volumeInfo.imageLinks.thumbnail}
                     authors={book.volumeInfo.authors.join(", ")}
                     />
-            ))}
+                )
+                })}
             </BookList>
         </>
     );
