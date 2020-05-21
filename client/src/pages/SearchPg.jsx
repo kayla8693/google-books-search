@@ -40,7 +40,7 @@ const handleSaveBook = id => {
         link: book.volumeInfo.infoLink,
         image: book.volumeInfo.imageLinks.thumbnail
     })
-    .then(() => this.getBooks());
+    .then(() => API.getBooks());
 }
 
 

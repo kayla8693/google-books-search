@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import API from "../utils/API";
 // import DeleteBtn from "../components/DeleteBtn";
 // import { Container, Row, Col } from "../components/Grid";
-import { BookList, SavedItem } from "../components/BookList";
+import { BookList, BookListItem } from "../components/BookList";
 
 function SavedPg() {
 
@@ -34,20 +34,26 @@ function SavedPg() {
                 {/* <SavedItem 
                 {...savedBooks}
                 /> */}
-            {savedBooks.map(book => {
-                console.log(book)
+            {savedBooks.map(book => (
 
-                return (
-                    <SavedItem
+                    <BookListItem
                     key={book.id}
-                    title={book.volumeInfo.title}
-                    description={book.volumeInfo.description}
-                    link={book.volumeInfo.infoLink}
-                    image={book.volumeInfo.imageLinks.thumbnail}
-                    authors={book.volumeInfo.authors.join(", ")}
+                    title={book.title}
+                    description={book.description}
+                    link={book.link}
+                    image={book.image}
+                    authors={book.authors.join(", ")}
+                    Button={() => (
+                        <button
+                        onClick={() => deleteBook(book._id)}
+                        className="btn btn-danger deleteBtn">
+                        Delete
+                        </button>
+                        
+                    )}
                     />
-                )
-                })}
+                
+            ))}
             </BookList>
         </>
     );
