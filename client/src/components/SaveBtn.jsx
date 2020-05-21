@@ -1,16 +1,16 @@
 import React from "react";
-import SubmitBtn from "./Button";
+import Button from "./Button";
 
 function SaveBtn({ children }) {
     return (
-        <SubmitBtn
+        <Button
         type="primary"
         className="input-lg"
-        // onClick={}
+        // onClick={props.handleSaveBook}
         >
             Save Book
             {children}
-        </SubmitBtn>
+        </Button>
     );
 }
 

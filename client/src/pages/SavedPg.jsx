@@ -1,15 +1,17 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import API from "../utils/API";
-import DeleteBtn from "../components/DeleteBtn";
-import { Container, Row, Col } from "../components/Grid";
+// import DeleteBtn from "../components/DeleteBtn";
+// import { Container, Row, Col } from "../components/Grid";
 import { BookList, SavedItem } from "../components/BookList";
-
-
 
 function SavedPg() {
 
     const [savedBooks, setSavedBooks] = useState([]);
+
+    useEffect(() => {
+        loadBooks()
+    }, [])
 
     function loadBooks() {
         API.getBooks()

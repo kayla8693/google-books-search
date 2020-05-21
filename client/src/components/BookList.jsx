@@ -10,6 +10,7 @@ export function BookList({ children }) {
 }
 
 export function BookListItem({
+    props,
     title,
     authors,
     description,
@@ -32,7 +33,9 @@ export function BookListItem({
                     </Col>
                 </Row>
                 <Row>
-                    <SaveBtn />
+                    <SaveBtn 
+                    onClick={(event) => props.handleSaveBook(event)}
+                    />
                 </Row>
             </Container>
         </li>

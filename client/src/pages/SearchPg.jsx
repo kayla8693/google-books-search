@@ -27,7 +27,15 @@ function SearchPg() {
   }
 
   const handleSaveBook = event => {
-      API.saveBook()
+      event.preventDefault();
+      console.log(books);
+      console.log("clicked");
+      let savedBook = books.filter(book => book.id === event.target.id)
+      console.log(savedBook);
+      savedBook = savedBook[0];
+      API.saveBook(savedBook)
+      .then(() => {alert(`${savedBook.title} was saved`)})
+      .catch(err => console.log(err));
   }
 
   return (
@@ -73,6 +81,7 @@ function SearchPg() {
                     link={book.volumeInfo.infoLink}
                     image={book.volumeInfo.imageLinks.thumbnail}
                     authors={book.volumeInfo.authors.join(", ")}
+                    handleSaveBook={handleSaveBook}
                     />
                     <br></br>
                     </>

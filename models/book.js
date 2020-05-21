@@ -21,6 +21,10 @@ const bookSchema = new Schema({
     image: {
         type: String,
         trim: true
+    },
+    date: {
+        type: DataCue,
+        default: Date.now
     }
 });
 
