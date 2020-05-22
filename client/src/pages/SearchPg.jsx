@@ -74,8 +74,6 @@ const handleSaveBook = id => {
                     key={book.id}
                     title={book.volumeInfo.title}
                     authors={
-                        // book.volumeInfo.authors.join(", ")
-
                         !book.volumeInfo.authors ? "No author listed" : book.volumeInfo.authors.join(", ")
                     }
                     description={book.volumeInfo.description}
