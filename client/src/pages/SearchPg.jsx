@@ -73,14 +73,17 @@ const handleSaveBook = id => {
                     <BookListItem
                     key={book.id}
                     title={book.volumeInfo.title}
+                    authors={
+                        // book.volumeInfo.authors.join(", ")
+
+                        !book.volumeInfo.authors ? "No author listed" : book.volumeInfo.authors.join(", ")
+                    }
                     description={book.volumeInfo.description}
                     link={book.volumeInfo.infoLink}
                     image={
-                        // book.volumeInfo.imageLinks.thumbnail
-
-                        book.volumeInfo.imageLinks === undefined ? "https://placehold.it/100x100" : book.volumeInfo.imageLinks.thumbnail
+                        !book.volumeInfo.imageLinks ? "https://placehold.it/100x100" : book.volumeInfo.imageLinks.thumbnail
                     }
-                    authors={book.volumeInfo.authors.join(", ")}
+
                     Button={() => (
                         <button
                         onClick={() => handleSaveBook(book.id)}
