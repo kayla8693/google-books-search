@@ -33,29 +33,17 @@ const handleSaveBook = id => {
     const book = books.find(book => book.id === id);
 
     API.saveBook({
-        id: book.id,
+        // id: book.id,
         title: book.volumeInfo.title,
         authors: book.volumeInfo.authors,
         description: book.volumeInfo.description,
         link: book.volumeInfo.infoLink,
         image: book.volumeInfo.imageLinks.thumbnail
     })
-    .then(() => API.getBooks());
+    .then(() => {alert(`${book.volumeInfo.title} was saved to your library!`)}
+    
+    );
 }
-
-
-
-//   const handleSaveBook = event => {
-//       event.preventDefault();
-//       console.log(books);
-//       console.log("clicked");
-//       let savedBook = books.filter(book => book.id === event.target.id)
-//       console.log(savedBook);
-//       savedBook = savedBook[0];
-//       API.saveBook(savedBook)
-//       .then(() => {alert(`${savedBook.title} was saved`)})
-//       .catch(err => console.log(err));
-//   }
 
   return (
 
