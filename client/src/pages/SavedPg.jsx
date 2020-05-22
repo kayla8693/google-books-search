@@ -11,14 +11,6 @@ function SavedPg() {
         loadBooks()
     }, [])
 
-    // function loadBooks() {
-    //     API.getBooks("/api/books")
-    //     .then(res => 
-    //         setSavedBooks(res.data)
-    //     )
-    //     .catch(err => console.log(err));
-    // };
-
     const loadBooks = () => {
         API.getBooks("/api/books")
         .then(res => 
@@ -27,43 +19,12 @@ function SavedPg() {
         .catch(err => console.log(err));
     }
 
-
-    // function handleDeleteBook(id) {
-    //     API.deleteBook(id)
-    //     .then(res => loadBooks())
-    //     .catch(err => console.log(err));
-    // };
-
-
-    // const handleSaveBook = id => {
-    //     const book = books.find(book => book.id === id);
-    
-    //     API.saveBook({
-    //         // id: book.id,
-    //         title: book.volumeInfo.title,
-    //         authors: book.volumeInfo.authors,
-    //         description: book.volumeInfo.description,
-    //         link: book.volumeInfo.infoLink,
-    //         image: book.volumeInfo.imageLinks.thumbnail
-    //     })
-    //     .then(() => {alert(`${book.volumeInfo.title} was saved to your library!`)}
-        
-    //     );
-    // }
-
-
-
-
     const handleDeleteBook = id => {
-        // const book = savedBooks.find(book => book._id === _id);
-        console.log(id);
         API.deleteBook(id)
         .then((res) => {loadBooks();
-        console.log("book deleted")})
+        console.log("Book deleted")})
         .catch(err => console.log(err));
     }
-
-
 
     return (
         <>

@@ -3,11 +3,8 @@ import React, { useState } from "react";
 import { Container, Row, Col } from "../components/Grid";
 import SearchBox from "../components/SearchBox";
 import Button from "../components/Button";
-// import SaveBtn from "../components/SaveBtn";
 import { BookList, BookListItem } from "../components/BookList";
 import API from "../utils/API";
-
-
 
 
 function SearchPg() {
@@ -26,14 +23,10 @@ function SearchPg() {
     .catch(err => console.log(err));
   }
 
-
-
-
 const handleSaveBook = id => {
     const book = books.find(book => book.id === id);
 
     API.saveBook({
-        // id: book.id,
         title: book.volumeInfo.title,
         authors: book.volumeInfo.authors,
         description: book.volumeInfo.description,
@@ -41,12 +34,10 @@ const handleSaveBook = id => {
         image: book.volumeInfo.imageLinks.thumbnail
     })
     .then(() => {alert(`${book.volumeInfo.title} was saved to your library!`)}
-    
     );
 }
 
   return (
-
 <>
       <Container>
         <Row>
@@ -84,9 +75,12 @@ const handleSaveBook = id => {
                     title={book.volumeInfo.title}
                     description={book.volumeInfo.description}
                     link={book.volumeInfo.infoLink}
-                    image={book.volumeInfo.imageLinks.thumbnail}
+                    image={
+                        // book.volumeInfo.imageLinks.thumbnail
+
+                        book.volumeInfo.imageLinks === undefined ? "https://placehold.it/100x100" : book.volumeInfo.imageLinks.thumbnail
+                    }
                     authors={book.volumeInfo.authors.join(", ")}
-                    // handleSaveBook={handleSaveBook}
                     Button={() => (
                         <button
                         onClick={() => handleSaveBook(book.id)}
@@ -96,54 +90,13 @@ const handleSaveBook = id => {
                         
                     )}
                     />
-                    
-                  
   ))}
               </BookList>
-            
           </Col>
         </Row>
       </Container>
       </>
-
-
   );
 }
 
 export default SearchPg;
-
-
-
-
-// import Image from "../components/Image";
-
-// export function BookList({ children }) {
-//     return <ul className="list-group">{children}</ul>;
-// }
-
-// export function BookListItem({
-//     title,
-//     authors,
-//     description,
-//     image,
-//     link
-// }) {
-//     return (
-//         <li className="list-group-item">
-//             <Container>
-//                 <Row>
-//                     <Col size="xs-4 sm-2">
-//                         <img src={image} alt={title} />
-//                     </Col>
-//                     <Col size="xs-8 sm-9">
-//                         <h3>{title} by {authors}</h3>
-//                         <p>{description}</p>
-//                         <a rel="noreferrer noopener" target="blank" href={link}>
-//                             Go to Book!
-//                         </a>
-//                     </Col>
-//                 </Row>
-//             </Container>
-//         </li>
-//     );
-// }
