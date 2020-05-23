@@ -30,7 +30,7 @@ export function BookListItem({
                     <Button />
                     <a rel="noreferrer noopener" target="blank" href={link}>
                         <button className=" btn viewBtn">
-                            View Book!
+                            View Book
                             </button>
                     </a>
                 </Row>
