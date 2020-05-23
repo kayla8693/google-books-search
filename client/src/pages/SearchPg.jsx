@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
 import { Container, Row, Col } from "../components/Grid";
+import JumboTron from "../components/JumboTron";
 import SearchBox from "../components/SearchBox";
 import Button from "../components/Button";
 import { BookList, BookListItem } from "../components/BookList";
@@ -42,6 +43,7 @@ const handleSaveBook = id => {
       <Container>
         <Row>
           <Col size="md-12">
+            <JumboTron />
             <form>
               <Container>
                 <Row>

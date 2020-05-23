@@ -15,7 +15,7 @@ A React-based application designed to search the Google Books API. The app utili
 - React
 - Google Books API
 - Node.js
-- Express
+- Express.js
 - MongoDB
 - Mongoose
 
