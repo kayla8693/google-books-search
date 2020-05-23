@@ -17,10 +17,9 @@ function App() {
         <Route exact path="/saved/:id" component={SavedPg} />
         <Route component={null} />
       </Switch>
-    
+
     </Router>
   );
 }
-
 
 export default App;

@@ -1,5 +1,4 @@
 import React from "react";
-
 import { Container, Row, Col } from "../components/Grid";
 
 export function BookList({ children }) {
@@ -24,12 +23,17 @@ export function BookListItem({
                     <Col size="xs-8 sm-9">
                         <h3>{title} by {authors}</h3>
                         <p>{description}</p>
-                        <a rel="noreferrer noopener" target="blank" href={link}>
-                            Go to Book!
-                        </a>
+
                     </Col>
                 </Row>
-                <Button />
+                <Row className="btnRow">
+                    <Button />
+                    <a rel="noreferrer noopener" target="blank" href={link}>
+                        <button className=" btn viewBtn">
+                            View Book!
+                            </button>
+                    </a>
+                </Row>
             </Container>
         </li>
     );

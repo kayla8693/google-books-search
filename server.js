@@ -4,7 +4,7 @@ const path = require("path");
 const PORT = process.env.PORT || 3001;
 const app = express();
 const routes = require("./routes");
-const server = require("http").Server(app);
+const server = require("http").createServer(app);
 
 
 // Define middleware here
@@ -23,16 +23,10 @@ io.on("connection", (client) => {
 
   });
   client.on("disconnect", () => {
-    
+
   })
 
-
 })
-
-// io.listen(PORT, () => {
-//   console.log("listtening on port: " + PORT);
-
-// });
 
 app.use(routes);
 
